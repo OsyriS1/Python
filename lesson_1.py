@@ -58,11 +58,11 @@
 # Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. 
 # Затем пользователь вводит сами элементы множеств.
 
-n, m = input().split()
-n_1 = [int(i) for i in input().split()]
-m_1 = [int(j) for j in input().split()]
+# n, m = input().split()
+# n_1 = [int(i) for i in input().split()]
+# m_1 = [int(j) for j in input().split()]
 
-print(*sorted(set(n_1).intersection(m_1)))
+# print(*sorted(set(n_1).intersection(m_1)))
 
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику. Она растёт на круглой грядке, причём кусты высажены только по окружности.
 # Таким образом, у каждого куста есть ровно два соседних. Всего на грядке растёт N кустов.
@@ -73,17 +73,31 @@ print(*sorted(set(n_1).intersection(m_1)))
 # Напишите программу для нахождения максимального числа ягод, которое может собрать за один заход собирающий модуль,
 # находясь перед некоторым кустом заданной во входном файле грядки.
 
-n = int(input())
-bushes = [int(i) for i in input().split()]
-bush_max = 0
+# n = int(input())
+# bushes = [int(i) for i in input().split()]
+# bush_max = 0
 
-for i in range(-1, n - 1):
-    bush_sum = bushes[i - 1] + bushes[i] + bushes[i + 1]
-    if bush_sum > bush_max:
-            bush_max = bush_sum
+# for i in range(-1, n - 1):
+#     bush_sum = bushes[i - 1] + bushes[i] + bushes[i + 1]
+#     if bush_sum > bush_max:
+#             bush_max = bush_sum
 
-print(bush_max)
+# print(bush_max)
 
 #Задача 26:  Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+
+def power(x, n):
+    if n == 0:
+        return 1
+    if n < 0:
+        return 1 / power(x, -n)
+    if n % 2 == 0:
+        return power(x, n // 2) * power(x, n // 2)
+    else:
+        return power(x, n - 1) * x
+
+x = int(input())
+n = int(input())
+print(power(x, n))
 
 
